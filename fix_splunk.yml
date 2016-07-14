@@ -1,0 +1,6 @@
+---
+- hosts: shcmember
+  remote_user: root
+  become_method: su
+
+- include: tasks/main.yml
