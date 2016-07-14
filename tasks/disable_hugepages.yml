@@ -1,9 +1,9 @@
 ---
 - name: disable transparent hugepages
-  command: echo > never /sys/kernel/mm/transparent_hugepage/enabled
+  shell: echo > never /sys/kernel/mm/transparent_hugepage/enabled
 
 - name: disable transparent hugepages defrag
-  command: echo > never /sys/kernel/mm/transparent_hugepage/defrag
+  shell: echo > never /sys/kernel/mm/transparent_hugepage/defrag
 
 - name: make persistent, copy default grub file
   copy:
