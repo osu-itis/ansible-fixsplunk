@@ -27,5 +27,5 @@
 
   handlers:
 
-  -name: update-grub
-   shell: update-grub
+  - name: update-grub
+    shell: update-grub
