@@ -1,3 +1,0 @@
----
-- include: disable_hugepages.yml
-- include: set_nofile.yml

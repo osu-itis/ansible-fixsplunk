@@ -3,4 +3,29 @@
   remote_user: root
   become_method: su
 
-- include: tasks/main.yml
+  tasks:
+
+  - shell: echo > never /sys/kernel/mm/transparent_hugepage/enabled
+
+  - shell: echo > never /sys/kernel/mm/transparent_hugepage/defrag
+
+  - name: make persistent, copy default grub file
+    copy:
+      src=files/default_grub
+      dest=/etc/default/grub
+    notify: update-grub
+
+  - name: enable pam_limits.so
+    copy:
+      src=files/common-session
+      dest=/etc/pam.d/common-session
+
+  - name: set file descriptor limits
+    copy:
+      src=files/limits.conf
+      dest=/etc/security/limits.conf
+
+  handlers:
+
+  -name: update-grub
+   shell: update-grub
