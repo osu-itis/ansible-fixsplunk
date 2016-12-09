@@ -5,9 +5,9 @@
 
   tasks:
 
-  - shell: echo > never /sys/kernel/mm/transparent_hugepage/enabled
+  - command: "echo > never /sys/kernel/mm/transparent_hugepage/enabled"
 
-  - shell: echo > never /sys/kernel/mm/transparent_hugepage/defrag
+  - command: "echo > never /sys/kernel/mm/transparent_hugepage/defrag"
 
   - name: make persistent, copy default grub file
     copy:
@@ -28,4 +28,4 @@
   handlers:
 
   - name: update-grub
-    shell: update-grub
+    command: "update-grub"
