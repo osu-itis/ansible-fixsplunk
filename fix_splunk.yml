@@ -1,5 +1,5 @@
 ---
-- hosts: shcmember
+- hosts: all
   remote_user: root
   become_method: su
 
